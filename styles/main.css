@@ -1,0 +1,185 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+  background-color: tomato;
+  box-sizing: border-box;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+  width: 100%;
+}
+
+.board table {
+  width: 100%;
+  border: 5px solid white;
+}
+
+td {
+  height: 100px;
+  width: 100px;
+  border: 5px solid white;
+}
+
+main {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.boardLeft{
+  width: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.boardMiddle {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.boardRight{
+  width: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.board {
+  height: 530px;
+  width: 500px;
+  border: 5px solid white;
+  border-radius: 5px;
+  margin-top: 50px;
+}
+
+.headerFont {
+  font-family: 'Barrio',cursive;
+  font-size: 70pt;
+  color: white;
+}
+
+.secondaryHeader {
+  font-family: 'Barrio',cursive;
+  font-size: 35pt;
+  color: white;
+  text-align: center;
+  margin-top: 19px;
+}
+
+.scoreBox {
+  width: 260px;
+  height: 80px;
+  border: 10px solid white;
+  border-radius: 5px;
+  margin-bottom: 310px;
+}
+
+.highScoreBox {
+  width: 260px;
+  height: 530px;
+  border: 5px solid white;
+  border-radius: 5px;
+  margin-top: 34px;
+}
+
+.rulesButton {
+  width: 260px;
+  height: 80px;
+  border: 5px solid white;
+  border-radius: 5px;
+  color: tomato;
+  background-color: white;
+  font-family: 'Barrio',cursive;
+  font-size: 35pt;
+}
+
+.upiece {
+  height: 60px;
+  width: 60px;
+  margin: auto;
+  margin-top: 20px;
+  border: none;
+  background-color: darkblue;
+  border-radius: 30px;
+   -webkit-filter: drop-shadow(6px 6px 7px rgba(0,0,0,0.5));
+}
+
+@keyframes example {
+    from {background-color: darkblue; height: 60px; width: 60px;
+    margin-top: 20px; border-radius: 30px;}
+    to {background-color: blue; height: 70px; width: 70px;
+    margin-top: 15px; border-radius: 35px;}
+}
+
+.upiece:hover {
+  /*background-color: darkblue;
+  height: 70px;
+  width: 70px;
+  border-radius: 35px;
+  margin-top: 15px;*/
+  animation-name: example;
+  animation-duration: .3s;
+  animation-fill-mode: forwards;
+}
+
+.uwall {
+  border-bottom: 10px solid darkblue;
+}
+
+@@keyframes wallGrow {
+  from {border-bottom: 10px solid blue}
+  to {border-bottom: 25px solid darkblue}
+}
+
+.uwall:hover {
+  animation-name: wallGrow;
+  animation-duration: .3s;
+  animation-fill-mode: forwards;
+}
+/*.help {
+  border: 3px solid blue;
+}*/
