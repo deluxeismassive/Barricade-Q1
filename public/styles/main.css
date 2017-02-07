@@ -59,6 +59,7 @@ td {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	position: relative;
 }
 tr {
 	display: flex;
@@ -127,6 +128,12 @@ main {
   border-radius: 5px;
 	-webkit-filter: drop-shadow(6px 6px 7px rgba(0,0,0,0.5));
 	padding: 0;
+	font-family: 'Barrio',cursive;
+  font-size: 35pt;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
 }
 
 .highScoreBox {
@@ -139,6 +146,22 @@ main {
 	padding: 0;
 }
 
+.highScoreBox table {
+	width: 100%;
+  border: 5px solid white;
+}
+
+.highScoreBox td {
+  height: 47.5px;
+  width: 125px;
+  border: 2px solid white;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
 .choiceBox {
 	width: 260px;
 	height: 250px;
@@ -146,6 +169,19 @@ main {
 	border-radius: 5px;
 	-webkit-filter: drop-shadow(6px 6px 7px rgba(0,0,0,0.5));
 	padding: 0;
+	font-family: 'Barrio',cursive;
+	display: block;
+	color: lightgrey;
+	text-align: center;
+	font-size: 25px;
+}
+
+.choiceBox p {
+	margin-top: 15px;
+}
+
+.choiceBox p:hover {
+	color: white;
 }
 
 .rulesButton {
@@ -159,6 +195,42 @@ main {
   font-size: 35pt;
 	-webkit-filter: drop-shadow(6px 6px 7px rgba(0,0,0,0.5));
 	padding: 0;
+}
+
+.rulesWindow {
+	height: 600px;
+	width: 800px;
+	margin: auto;
+	border: 10px solid white;
+  border-radius: 5px;
+  color: white;
+	font-family: 'Barrio',cursive;
+  font-size: 20pt;
+	background-color: tomato;
+	-webkit-filter: drop-shadow(6px 6px 7px rgba(0,0,0,0.5));
+	padding: 0;
+	position: absolute;
+	margin-top: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.rulesWindow header {
+	font-size: 35pt;
+	margin-bottom: 25px;
+	font-weight: bold;
+}
+
+.rulesWindow p {
+	font-size: 28pt;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+.rulesWindow li {
+	margin-left: 20px;
+	margin-top: 20px;
 }
 
 .upiece {
@@ -198,20 +270,80 @@ td:hover {
 	 padding: 0;
 }
 
-.uwallBot {
-	border-bottom: 5px solid darkblue;
+.selected {
+	background-color: springgreen;
 }
 
-.ywallBot {
-	border-bottom: 5px solid gold;
+.uwallBot {
+	border-bottom: 5px solid darkblue;
 }
 
 .uwallRyt {
 	border-right: 5px solid darkblue;
 }
 
+.botwallchange {
+	border-bottom: 5px solid blue;
+}
+
+.rytwallchange {
+	border-right: 5px solid blue;
+}
+
+.upiecechange {
+	background-color: blue;
+}
+
+.ywallBot {
+	border-bottom: 5px solid gold;
+}
+
 .ywallRyt {
 	border-right: 5px solid gold;
+}
+
+.highlightCellPiece {
+	background-color: lightgrey;
+}
+
+.degeneratePiece {
+	background-color: tomato;
+}
+
+.indicateLeft {
+	height: 100px;
+	width: 50px;
+	position: absolute;
+	z-index: 100;
+	background-color: green;
+	right: 48px;
+}
+
+.indicateRight {
+	height: 100px;
+	width: 50px;
+	position: absolute;
+	z-index: 100;
+	background-color: green;
+	left: 48px;
+}
+
+.indicateUp {
+	height: 50px;
+	width: 100px;
+	position: absolute;
+	z-index: 100;
+	background-color: green;
+	bottom: 48px;
+}
+
+.indicateDown {
+	height: 50px;
+	width: 100px;
+	position: absolute;
+	z-index: 100;
+	background-color: green;
+	top: 48px;
 }
 /*.help {
   border: 3px solid blue;
