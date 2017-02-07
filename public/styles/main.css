@@ -53,7 +53,15 @@ table {
 td {
   height: 100px;
   width: 100px;
-  border: 5px solid white;
+  border: 2px solid white;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+tr {
+	display: flex;
 }
 
 main {
@@ -83,17 +91,19 @@ main {
   width: 230px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;;
+  justify-content: space-between;
   align-items: center;
   padding-top: 30px;
 }
 
 .board {
-  height: 530px;
-  width: 500px;
+  height: 510px;
+  width: 510px;
   border: 5px solid white;
   border-radius: 5px;
   margin-top: 50px;
+	-webkit-filter: drop-shadow(6px 6px 7px rgba(0,0,0,0.5));
+	padding: 0;
 }
 
 .headerFont {
@@ -115,7 +125,8 @@ main {
   height: 80px;
   border: 10px solid white;
   border-radius: 5px;
-  margin-bottom: 310px;
+	-webkit-filter: drop-shadow(6px 6px 7px rgba(0,0,0,0.5));
+	padding: 0;
 }
 
 .highScoreBox {
@@ -124,6 +135,17 @@ main {
   border: 5px solid white;
   border-radius: 5px;
   margin-top: 34px;
+	-webkit-filter: drop-shadow(6px 6px 7px rgba(0,0,0,0.5));
+	padding: 0;
+}
+
+.choiceBox {
+	width: 260px;
+	height: 250px;
+	border: 10px solid white;
+	border-radius: 5px;
+	-webkit-filter: drop-shadow(6px 6px 7px rgba(0,0,0,0.5));
+	padding: 0;
 }
 
 .rulesButton {
@@ -135,13 +157,14 @@ main {
   background-color: white;
   font-family: 'Barrio',cursive;
   font-size: 35pt;
+	-webkit-filter: drop-shadow(6px 6px 7px rgba(0,0,0,0.5));
+	padding: 0;
 }
 
 .upiece {
   height: 60px;
   width: 60px;
   margin: auto;
-  margin-top: 20px;
   border: none;
   background-color: darkblue;
   border-radius: 30px;
@@ -149,36 +172,46 @@ main {
 }
 
 @keyframes example {
-    from {background-color: darkblue; height: 60px; width: 60px;
-    margin-top: 20px; border-radius: 30px;}
-    to {background-color: blue; height: 70px; width: 70px;
-    margin-top: 15px; border-radius: 35px;}
+    from {background-color: tomato;}
+    to {background-color: mistyrose;}
 }
 
-.upiece:hover {
+td:hover {
   /*background-color: darkblue;
   height: 70px;
   width: 70px;
   border-radius: 35px;
   margin-top: 15px;*/
   animation-name: example;
-  animation-duration: .3s;
+  animation-duration: .4s;
   animation-fill-mode: forwards;
 }
 
-.uwall {
-  border-bottom: 10px solid darkblue;
+.ypiece {
+  height: 60px;
+  width: 60px;
+  margin: auto;
+  border: none;
+  background-color: gold;
+  border-radius: 30px;
+   -webkit-filter: drop-shadow(6px 6px 7px rgba(0,0,0,0.5));
+	 padding: 0;
 }
 
-@@keyframes wallGrow {
-  from {border-bottom: 10px solid blue}
-  to {border-bottom: 25px solid darkblue}
+.uwallBot {
+	border-bottom: 5px solid darkblue;
 }
 
-.uwall:hover {
-  animation-name: wallGrow;
-  animation-duration: .3s;
-  animation-fill-mode: forwards;
+.ywallBot {
+	border-bottom: 5px solid gold;
+}
+
+.uwallRyt {
+	border-right: 5px solid darkblue;
+}
+
+.ywallRyt {
+	border-right: 5px solid gold;
 }
 /*.help {
   border: 3px solid blue;
