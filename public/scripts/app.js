@@ -31,13 +31,13 @@ function placeStartingWalls() {
 }
 
 function placeTest() {
-  $('#tr2 > #td2').addClass('uwallRyt')
   $('#tr3 > #td2').addClass('uwallBot')
-  $('#tr3 > #td2').append($('<div>', {class: 'upiece'}))
-  $('#tr3 > #td2').addClass('ywallRyt')
-  $('#tr3 > #td1').addClass('ywallRyt')
+  $('#tr1 > #td0').append($('<div>', {class: 'upiece'}))
   $('#tr2 > #td0').addClass('uwallRyt')
   $('#tr4 > #td3').addClass('uwallRyt')
+  $('#tr2 > #td0').append($('<div>', {class: 'ypiece'}))
+  $('#tr3 > #td1').append($('<div>', {class: 'ypiece'}))
+  //$('#tr3 > #td1').addClass('ywallRyt')
 }
 
 generateGameBoard();
@@ -46,6 +46,8 @@ placeStartingWalls();
 
 placeTest();
 
+//$(('#rules').click($('rulesWindow').show())
+
 //TopWall Movement Handlers
 $(document).on('click', '#TlowerRight', function (event) {
   console.log('ping');
@@ -53,6 +55,7 @@ $(document).on('click', '#TlowerRight', function (event) {
   $('.selected').parent().prev().find('#'+$id).removeClass('uwallBot')
   $('.selected').addClass('uwallRyt')
   event.stopImmediatePropagation()
+  $('.choiceBox').empty()
 })
 $(document).on('click', '#TlowerLeft', function (event) {
   console.log('ping');
@@ -60,6 +63,7 @@ $(document).on('click', '#TlowerLeft', function (event) {
   $('.selected').parent().prev().find('#'+$id).removeClass('uwallBot')
   $('.selected').prev().addClass('uwallRyt')
   event.stopImmediatePropagation()
+  $('.choiceBox').empty()
 })
 $(document).on('click', '#TupperRight', function (event) {
   console.log('ping');
@@ -67,6 +71,7 @@ $(document).on('click', '#TupperRight', function (event) {
   $('.selected').removeClass('uwallBot')
   $('.selected').addClass('uwallRyt')
   event.stopImmediatePropagation()
+  $('.choiceBox').empty()
 })
 $(document).on('click', '#TupperLeft', function (event) {
   console.log('ping');
@@ -75,6 +80,7 @@ $(document).on('click', '#TupperLeft', function (event) {
   $('.selected').removeClass('uwallBot')
   $('.selected').prev().addClass('uwallRyt')
   event.stopImmediatePropagation()
+  $('.choiceBox').empty()
 })
 
 //RightWall event Handlers
@@ -85,6 +91,7 @@ $(document).on('click', '#RupperLeft', function (event) {
   $('.selected').removeClass('uwallRyt')
   $('.selected').parent().prev().find('#'+$id).addClass('uwallBot')
   event.stopImmediatePropagation()
+  $('.choiceBox').empty()
 })
 $(document).on('click', '#RupperRight', function (event) {
   console.log('ping');
@@ -92,18 +99,21 @@ $(document).on('click', '#RupperRight', function (event) {
   $('.selected').prev().removeClass('uwallRyt')
   $('.selected').parent().prev().find('#'+$nid).addClass('uwallBot')
   event.stopImmediatePropagation()
+  $('.choiceBox').empty()
 })
 $(document).on('click', '#RlowerLeft', function (event) {
   console.log('ping');
   $('.selected').removeClass('uwallRyt')
   $('.selected').addClass('uwallBot')
   event.stopImmediatePropagation()
+  $('.choiceBox').empty()
 })
 $(document).on('click', '#RlowerRight', function (event) {
   console.log('ping');
   $('.selected').prev().removeClass('uwallRyt')
   $('.selected').addClass('uwallBot')
   event.stopImmediatePropagation()
+  $('.choiceBox').empty()
 })
 
 //LeftWall movement event Handlers
@@ -114,6 +124,7 @@ $(document).on('click', '#LupperLeft', function (event) {
   $('.selected').removeClass('uwallRyt')
   $('.selected').parent().prev().find('#'+$id).addClass('uwallBot')
   event.stopImmediatePropagation()
+  $('.choiceBox').empty()
 })
 $(document).on('click', '#LupperRight', function (event) {
   console.log('ping');
@@ -121,18 +132,21 @@ $(document).on('click', '#LupperRight', function (event) {
   $('.selected').prev().removeClass('uwallRyt')
   $('.selected').parent().prev().find('#'+$nid).addClass('uwallBot')
   event.stopImmediatePropagation()
+  $('.choiceBox').empty()
 })
 $(document).on('click', '#LlowerLeft', function (event) {
   console.log('ping');
   $('.selected').removeClass('uwallRyt')
   $('.selected').addClass('uwallBot')
   event.stopImmediatePropagation()
+  $('.choiceBox').empty()
 })
 $(document).on('click', '#LlowerRight', function (event) {
   console.log('ping');
   $('.selected').prev().removeClass('uwallRyt')
   $('.selected').addClass('uwallBot')
   event.stopImmediatePropagation()
+  $('.choiceBox').empty()
 })
 
 
@@ -144,6 +158,7 @@ $(document).on('click', '#BlowerRight', function (event) {
   $('.selected').parent().prev().find('#'+$id).removeClass('uwallBot')
   $('.selected').addClass('uwallRyt')
   event.stopImmediatePropagation()
+  $('.choiceBox').empty()
 })
 $(document).on('click', '#BlowerLeft', function (event) {
   console.log('ping');
@@ -151,6 +166,7 @@ $(document).on('click', '#BlowerLeft', function (event) {
   $('.selected').parent().prev().find('#'+$id).removeClass('uwallBot')
   $('.selected').prev().addClass('uwallRyt')
   event.stopImmediatePropagation()
+  $('.choiceBox').empty()
 })
 $(document).on('click', '#BupperRight', function (event) {
   console.log('ping');
@@ -158,6 +174,7 @@ $(document).on('click', '#BupperRight', function (event) {
   $('.selected').removeClass('uwallBot')
   $('.selected').addClass('uwallRyt')
   event.stopImmediatePropagation()
+  $('.choiceBox').empty()
 })
 $(document).on('click', '#BupperLeft', function (event) {
   console.log('ping');
@@ -166,14 +183,19 @@ $(document).on('click', '#BupperLeft', function (event) {
   $('.selected').removeClass('uwallBot')
   $('.selected').prev().addClass('uwallRyt')
   event.stopImmediatePropagation()
+  $('.choiceBox').empty()
 })
+
+//Generates the choices in the ChoiceBox
 
 $('td').click(function(event) {
   var $tar = $(this);
   if ($tar.is('.highlightCellPiece')) {
     movePiece($tar)
+  } else if ($tar.is('.highlightCellJump')) {
+      jumpPiece($tar)
   } else {
-    $('td').removeClass('selected').removeClass('highlightCellPiece').removeClass('botwallchange').removeClass('rytwallchange').children().removeClass('upiecechange')
+    $('td').removeClass('selected').removeClass('highlightCellJump').removeClass('highlightCellPiece').removeClass('botwallchange').removeClass('rytwallchange').children().removeClass('upiecechange')
     $('.indicateRight').remove()
     $('.indicateLeft').remove()
     $('.indicateUp').remove()
@@ -199,12 +221,6 @@ $('td').click(function(event) {
   }
 })
 
-// $('#wtopp').click(function(event) {
-//   var $id = $('.selected').attr('id')
-//   $('.selected').parent().prev().find('#'+id).addClass('botwallchange')
-// })
-
-
 //Choice Box selection of TopWall and the highlighting of potential moves.
 $('.choiceBox').on('click', '#wtopp', function(event) {
   $('.indicateRight').remove()
@@ -213,6 +229,7 @@ $('.choiceBox').on('click', '#wtopp', function(event) {
   $('.indicateDown').remove()
   var $id = $('.selected').attr('id')
   $('td').removeClass('botwallchange').removeClass('rytwallchange').children().removeClass('upiecechange')
+  $('td').removeClass('highlightCellPiece').removeClass('highlightCellJump')
   $('.selected').parent().prev().find('#'+$id).addClass('botwallchange')
 
   if (!$('.selected').filter('.ywallRyt').length && !$('.selected').filter('.uwallRyt').length) {
@@ -244,6 +261,7 @@ $('.choiceBox').on('click', '#wrytp', function(event) {
   $('.indicateUp').remove()
   $('.indicateDown').remove()
   $('td').removeClass('botwallchange').removeClass('rytwallchange').children().removeClass('upiecechange')
+  $('td').removeClass('highlightCellPiece').removeClass('highlightCellJump')
   $('.selected').addClass('rytwallchange')
 
   if (!$('.selected').filter('.ywallBot').length && !$('.selected').filter('.uwallBot').length) {
@@ -275,6 +293,7 @@ $('.choiceBox').on('click', '#wlftp', function(event) {
   $('.indicateUp').remove()
   $('.indicateDown').remove()
   $('td').removeClass('botwallchange').removeClass('rytwallchange').children().removeClass('upiecechange')
+  $('td').removeClass('highlightCellPiece').removeClass('highlightCellJump')
   $('.selected').prev().addClass('rytwallchange')
 
   if (!$('.selected').filter('.ywallBot').length && !$('.selected').filter('.uwallBot').length) {
@@ -307,6 +326,7 @@ $('.choiceBox').on('click', '#wbotp', function(event) {
   $('.indicateUp').remove()
   $('.indicateDown').remove()
   $('td').removeClass('botwallchange').removeClass('rytwallchange').children().removeClass('upiecechange')
+  $('td').removeClass('highlightCellPiece').removeClass('highlightCellJump')
   $('.selected').addClass('botwallchange')
 
   if (!$('.selected').filter('.ywallRyt').length && !$('.selected').filter('.uwallRyt').length) {
@@ -338,14 +358,23 @@ $('.choiceBox').on('click', '#piecep', function(event) {
   $('.indicateUp').remove()
   $('.indicateDown').remove()
   $('td').removeClass('botwallchange').removeClass('rytwallchange').children().removeClass('upiecechange')
+  $('td').removeClass('highlightCellPiece').removeClass('highlightCellJump')
   $('.selected').children().addClass('upiecechange')
 
   if (!$('.selected').prev().find('div').length && !$('.selected').prev().filter('.ywallRyt').length) {
     $('.selected').prev().addClass('highlightCellPiece')
   }
 
+  if ($('.selected').prev().find('.ypiece').length && !$('.selected').prev().filter('.ywallRyt').length) {
+    $('.selected').prev().prev().addClass('highlightCellJump')
+  }
+
   if (!$('.selected').next().find('div').length && !$('.selected').filter('.ywallRyt').length) {
     $('.selected').next().addClass('highlightCellPiece')
+  }
+
+  if ($('.selected').next().find('.ypiece').length && !$('.selected').filter('.ywallRyt').length) {
+    $('.selected').next().next().addClass('highlightCellJump')
   }
 
   var $id = $('.selected').attr('id')
@@ -353,8 +382,17 @@ $('.choiceBox').on('click', '#piecep', function(event) {
     $('.selected').parent().prev().find('#'+$id).addClass('highlightCellPiece')
   }
 
+  var $id = $('.selected').attr('id')
+  if ($('.selected').parent().prev().find('#'+$id).find('.ypiece').length && !$('.selected').parent().prev().find('#'+$id).filter('.ywallBot').length) {
+    $('.selected').parent().prev().prev().find('#'+$id).addClass('highlightCellJump')
+  }
+
   if (!$('.selected').parent().next().find('#'+$id).find('div').length && !$('.selected').filter('.ywallBot').length) {
     $('.selected').parent().next().find('#'+$id).addClass('highlightCellPiece')
+  }
+
+  if ($('.selected').parent().next().find('#'+$id).find('.ypiece').length && !$('.selected').filter('.ywallBot').length) {
+    $('.selected').parent().next().next().find('#'+$id).addClass('highlightCellJump')
   }
 })
 
@@ -364,6 +402,15 @@ function movePiece($dest) {
   $('.selected').empty()
   console.log($dest);
   $dest.append($('<div>', {class: 'upiece'}))
-  $('td').removeClass('selected').removeClass('highlightCellPiece').removeClass('botwallchange').removeClass('rytwallchange').children().removeClass('upiecechange')
+  $('td').removeClass('selected').removeClass('highlightCellJump').removeClass('highlightCellPiece').removeClass('botwallchange').removeClass('rytwallchange').children().removeClass('upiecechange')
+  $('.choiceBox').empty()
+}
+
+function jumpPiece($dest) {
+  $('.selected').addClass('.degeneratePiece')
+  $('.selected').empty()
+  console.log($dest);
+  $dest.append($('<div>', {class: 'upiece'}))
+  $('td').removeClass('selected').removeClass('highlightCellJump').removeClass('highlightCellPiece').removeClass('botwallchange').removeClass('rytwallchange').children().removeClass('upiecechange')
   $('.choiceBox').empty()
 }
