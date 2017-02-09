@@ -52,9 +52,10 @@ function attachListeners() {
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
     $('.temp').removeClass('temp')
+    scanYPiecesJ()
   })
   $(document).on('click', '#placeWallLeft', function (event) {
-    if ($('.temp').find('#td0')) {
+    if ($('.temp').find('#td0').length) {
       $('.temp').addClass('uwallLft')
     } else {
     $('.temp').prev().addClass('uwallRyt')
@@ -62,16 +63,18 @@ function attachListeners() {
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
     $('.temp').removeClass('temp')
+    scanYPiecesJ()
   })
   $(document).on('click', '#placeWallBot', function (event) {
     $('.temp').addClass('uwallBot')
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
     $('.temp').removeClass('temp')
+    scanYPiecesJ()
   })
   $(document).on('click', '#placeWallTop', function (event) {
     var $id = $('.temp').attr('id')
-    if ($('.temp').parent().find('#tr0')) {
+    if ($('.temp').parent().find('#tr0').length) {
       $('.temp').addClass('uwallTop')
     } else {
       $('.temp').parent().prev().find('#'+$id).addClass('uwallBot')
@@ -79,21 +82,21 @@ function attachListeners() {
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
     $('.temp').removeClass('temp')
+    scanYPiecesJ()
   })
 
   //TopWall Movement Handlers
   $(document).on('click', '#TlowerRight', function (event) {
-    console.log('ping');
     var $id = $('.selected').attr('id')
     $('.selected').parent().prev().find('#'+$id).removeClass('uwallBot')
     $('.selected').addClass('uwallRyt')
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
+    scanYPiecesJ()
   })
   $(document).on('click', '#TlowerLeft', function (event) {
-    console.log('ping');
     var $id = $('.selected').attr('id')
-    if ($('.selected').find('#td0')) {
+    if ($('.selected').find('#td0').length) {
       $('.selected').parent().prev().find('#'+$id).removeClass('uwallBot')
       $('.selected').addClass('uwallLft')
     } else {
@@ -102,20 +105,20 @@ function attachListeners() {
     }
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
+    scanYPiecesJ()
   })
   $(document).on('click', '#TupperRight', function (event) {
-    console.log('ping');
     var $id = $('.selected').attr('id')
     $('.selected').removeClass('uwallBot')
     $('.selected').addClass('uwallRyt')
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
+    scanYPiecesJ()
   })
   $(document).on('click', '#TupperLeft', function (event) {
-    console.log('ping');
     var $id = $('.selected').attr('id')
     var $pid = $('.selected').prev().attr('id')
-    if ($('.selected').find('#td0')) {
+    if ($('.selected').find('#td0').length) {
       $('.selected').removeClass('uwallBot')
       $('.selected').addClass('uwallLft')
     } else {
@@ -124,14 +127,14 @@ function attachListeners() {
     }
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
+    scanYPiecesJ()
   })
 
   //RightWall event Handlers
 
   $(document).on('click', '#RupperLeft', function (event) {
-    console.log('ping');
     var $id = $('.selected').attr('id')
-    if ($('.selected').parent().find('#tr0')) {
+    if ($('.selected').parent().find('#tr0').length) {
       $('.selected').removeClass('uwallRyt')
       $('.selected').addClass('uwallTop')
     } else {
@@ -140,11 +143,11 @@ function attachListeners() {
     }
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
+    scanYPiecesJ()
   })
   $(document).on('click', '#RupperRight', function (event) {
-    console.log('ping');
     var $nid = $('.selected').attr('id')
-    if ($('.selected').parent().find('#tr0')) {
+    if ($('.selected').parent().find('#tr0').length) {
       $('.selected').prev().removeClass('uwallRyt')
       $('.selected').addClass('uwallTop')
     } else {
@@ -153,28 +156,28 @@ function attachListeners() {
     }
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
+    scanYPiecesJ()
   })
   $(document).on('click', '#RlowerLeft', function (event) {
-    console.log('ping');
     $('.selected').removeClass('uwallRyt')
     $('.selected').addClass('uwallBot')
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
+    scanYPiecesJ()
   })
   $(document).on('click', '#RlowerRight', function (event) {
-    console.log('ping');
     $('.selected').prev().removeClass('uwallRyt')
     $('.selected').addClass('uwallBot')
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
+    scanYPiecesJ()
   })
 
   //LeftWall movement event Handlers
 
   $(document).on('click', '#LupperLeft', function (event) {
-    console.log('ping');
     var $id = $('.selected').attr('id')
-    if ($('.selected').parent().find('#tr0')) {
+    if ($('.selected').parent().find('#tr0').length) {
       $('.selected').removeClass('uwallRyt')
       $('.selected').addClass('uwallTop')
     } else {
@@ -183,11 +186,11 @@ function attachListeners() {
     }
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
+    scanYPiecesJ()
   })
   $(document).on('click', '#LupperRight', function (event) {
-    console.log('ping');
     var $nid = $('.selected').attr('id')
-    if ($('.selected').parent().find('#tr0')) {
+    if ($('.selected').parent().find('#tr0').length) {
       $('.selected').prev().removeClass('uwallRyt')
       $('.selected').addClass('uwallTop')
     } else {
@@ -196,37 +199,37 @@ function attachListeners() {
     }
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
+    scanYPiecesJ()
   })
   $(document).on('click', '#LlowerLeft', function (event) {
-    console.log('ping');
     $('.selected').removeClass('uwallRyt')
     $('.selected').addClass('uwallBot')
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
+    scanYPiecesJ()
   })
   $(document).on('click', '#LlowerRight', function (event) {
-    console.log('ping');
     $('.selected').prev().removeClass('uwallRyt')
     $('.selected').addClass('uwallBot')
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
+    scanYPiecesJ()
   })
 
 
   //BottomWall movement event Handlers
 
   $(document).on('click', '#BlowerRight', function (event) {
-    console.log('ping');
     var $id = $('.selected').attr('id')
     $('.selected').parent().prev().find('#'+$id).removeClass('uwallBot')
     $('.selected').addClass('uwallRyt')
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
+    scanYPiecesJ()
   })
   $(document).on('click', '#BlowerLeft', function (event) {
-    console.log('ping');
     var $id = $('.selected').attr('id')
-    if ($('.selected').find('#td0')) {
+    if ($('.selected').find('#td0').length) {
       $('.selected').parent().prev().find('#'+$id).removeClass('uwallBot')
       $('.selected').addClass('uwallLft')
     } else {
@@ -235,20 +238,20 @@ function attachListeners() {
     }
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
+    scanYPiecesJ()
   })
   $(document).on('click', '#BupperRight', function (event) {
-    console.log('ping');
     var $id = $('.selected').attr('id')
     $('.selected').removeClass('uwallBot')
     $('.selected').addClass('uwallRyt')
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
+    scanYPiecesJ()
   })
   $(document).on('click', '#BupperLeft', function (event) {
-    console.log('ping');
     var $id = $('.selected').attr('id')
     var $pid = $('.selected').prev().attr('id')
-    if ($('.selected').find('#td0')) {
+    if ($('.selected').find('#td0').length) {
       $('.selected').removeClass('uwallBot')
       $('.selected').addClass('uwallLft')
     } else {
@@ -257,9 +260,10 @@ function attachListeners() {
     }
     event.stopImmediatePropagation()
     $('.choiceBox').empty()
+    scanYPiecesJ()
   })
 
-  //Generates the choices in the ChoiceBox
+  //Generates the choices in the ChoiceBox or Jumps the piece or moves the piece
 
   $('td').click(function(event) {
     var $tar = $(this);
@@ -306,23 +310,19 @@ function attachListeners() {
     $('.selected').parent().prev().find('#'+$id).addClass('botwallchange')
 
     if (!$('.selected').filter('.ywallRyt').length && !$('.selected').filter('.uwallRyt').length) {
-      console.log('ping');
       $('.selected').append($('<div>', {class: 'indicateRight', id: 'TlowerRight'}))
     }
 
     if (!$('.selected').prev().filter('.ywallRyt').length && !$('.selected').prev().filter('.uwallRyt').length) {
-      console.log('ping');
       $('.selected').append($('<div>', {class: 'indicateLeft', id: 'TlowerLeft'}))
     }
 
     var $id = $('.selected').attr('id')
     var $idp = $('.selected').prev().attr('id')
     if (!$('.selected').parent().prev().find('#'+$id).filter('.ywallRyt').length && !$('.selected').parent().prev().find('#'+$id).filter('.uwallRyt').length) {
-      console.log('pong');
       $('.selected').parent().prev().find('#'+$id).append($('<div>', {class: 'indicateRight', id: 'TupperRight'}))
     }
     if (!$('.selected').parent().prev().find('#'+$idp).filter('.ywallRyt').length && !$('.selected').parent().prev().find('#'+$idp).filter('.uwallRyt').length) {
-      console.log('pongpong');
       $('.selected').parent().prev().find('#'+$id).append($('<div>', {class: 'indicateLeft', id: 'TupperLeft'}))
     }
   })
@@ -338,24 +338,20 @@ function attachListeners() {
     $('.selected').addClass('rytwallchange')
 
     if (!$('.selected').filter('.ywallBot').length && !$('.selected').filter('.uwallBot').length) {
-      console.log('ping');
       $('.selected').append($('<div>', {class: 'indicateDown', id: 'RlowerLeft'}))
     }
 
     var $id = $('.selected').attr('id')
     var $nid = $('.selected').next().attr('id')
     if (!$('.selected').parent().prev().find('#'+$id).filter('.ywallBot').length && !$('.selected').parent().prev().find('#'+$id).filter('.uwallBot').length) {
-      console.log('ping');
       $('.selected').append($('<div>', {class: 'indicateUp', id: 'RupperLeft'}))
     }
 
     if (!$('.selected').parent().prev().find('#'+$nid).filter('.ywallBot').length && !$('.selected').parent().prev().find('#'+$nid).filter('.uwallBot').length) {
-      console.log('ping');
       $('.selected').next().append($('<div>', {class: 'indicateUp', id: 'RupperRight'}))
     }
 
     if (!$('.selected').next().filter('.ywallBot').length && !$('.selected').next().filter('.uwallBot').length) {
-      console.log('ping');
       $('.selected').next().append($('<div>', {class: 'indicateDown', id: 'RlowerRight'}))
     }
   })
@@ -370,24 +366,20 @@ function attachListeners() {
     $('.selected').prev().addClass('rytwallchange')
 
     if (!$('.selected').filter('.ywallBot').length && !$('.selected').filter('.uwallBot').length) {
-      console.log('ping');
       $('.selected').append($('<div>', {class: 'indicateDown', id: 'LlowerRight'}))
     }
 
     var $id = $('.selected').attr('id')
     var $pid = $('.selected').prev().attr('id')
     if (!$('.selected').parent().prev().find('#'+$id).filter('.ywallBot').length && !$('.selected').parent().prev().find('#'+$id).filter('.uwallBot').length) {
-      console.log('ping');
       $('.selected').append($('<div>', {class: 'indicateUp', id: 'LupperRight'}))
     }
 
     if (!$('.selected').parent().prev().find('#'+$pid).filter('.ywallBot').length && !$('.selected').parent().prev().find('#'+$pid).filter('.uwallBot').length) {
-      console.log('ping');
       $('.selected').prev().append($('<div>', {class: 'indicateUp', id: 'LupperLeft'}))
     }
 
     if (!$('.selected').prev().filter('.ywallBot').length && !$('.selected').prev().filter('.uwallBot').length) {
-      console.log('ping');
       $('.selected').prev().append($('<div>', {class: 'indicateDown', id: 'LlowerLeft'}))
     }
   })
@@ -403,23 +395,19 @@ function attachListeners() {
     $('.selected').addClass('botwallchange')
 
     if (!$('.selected').filter('.ywallRyt').length && !$('.selected').filter('.uwallRyt').length) {
-      console.log('ping');
       $('.selected').append($('<div>', {class: 'indicateRight', id: 'BupperRight'}))
     }
 
     if (!$('.selected').prev().filter('.ywallRyt').length && !$('.selected').prev().filter('.uwallRyt').length) {
-      console.log('ping');
       $('.selected').append($('<div>', {class: 'indicateLeft', id: 'BupperLeft'}))
     }
 
     var $id = $('.selected').attr('id')
     var $idp = $('.selected').prev().attr('id')
     if (!$('.selected').parent().next().find('#'+$id).filter('.ywallRyt').length && !$('.selected').parent().next().find('#'+$id).filter('.uwallRyt').length) {
-      console.log('pong');
       $('.selected').parent().next().find('#'+$id).append($('<div>', {class: 'indicateRight', id: 'BlowerRight'}))
     }
     if (!$('.selected').parent().next().find('#'+$idp).filter('.ywallRyt').length && !$('.selected').parent().next().find('#'+$idp).filter('.uwallRyt').length) {
-      console.log('pongpong');
       $('.selected').parent().next().find('#'+$id).append($('<div>', {class: 'indicateLeft', id: 'BlowerLeft'}))
     }
   })
@@ -475,10 +463,10 @@ function attachListeners() {
 function movePiece($dest) {
   $('.selected').addClass('.degeneratePiece')
   $('.selected').empty()
-  console.log($dest);
   $dest.append($('<div>', {class: 'upiece'}))
   $('td').removeClass('selected').removeClass('highlightCellJump').removeClass('highlightCellPiece').removeClass('botwallchange').removeClass('rytwallchange').children().removeClass('upiecechange')
   $('.choiceBox').empty()
+  scanYPiecesJ()
 }
 
 function jumpPiece($dest) {
@@ -492,7 +480,6 @@ function jumpPiece($dest) {
 }
 
 function addWall($dest) {
-  console.log($dest);
   if (!$dest.filter('.ywallRyt').length && !$dest.filter('.uwallRyt').length) {
     $dest.append($('<div>', {class: 'indicateRight', id: 'placeWallRight'}))
   }
