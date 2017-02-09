@@ -1,0 +1,3 @@
+generateGameBoard();
+placeStartingPieces();
+placeStartingWalls();
