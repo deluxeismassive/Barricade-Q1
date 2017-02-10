@@ -1,3 +1,5 @@
+
+
 function generateGameBoard() {
   var $tab = $('<table>', {id: 'gameBoard'})
 
@@ -10,7 +12,7 @@ function generateGameBoard() {
   }
   $('.rulesWindow').hide()
   $('.warning').hide()
-  $('.winnersWindow').hide()
+  //$('.winnersWindow').hide()
   attachListeners();
 }
 
@@ -476,21 +478,23 @@ function attachListeners() {
   })
 
   $('.winnerButton').on('click', function() {
-    if ($('.winnersName').text() === "") {
+    console.log($('.winnersName').val());
+    if ($('.winnersName').val() === "") {
       $('.warning').fadeIn(1000)
       $('.warning').fadeOut(1000)
     }
     else {
-    var load = JSON.stringify({"game_name": "barricade_g43", "player_name":$('.winnersName').text(), "score": parseInt($('.scoreBox').text())})
+    var load = JSON.stringify({"game_name": "barricade_g43", "player_name":$('.winnersName').val(), "score": parseInt($('.scoreBox').text())})
+    console.log(typeof load);
     $.ajax("https://galvanize-leader-board.herokuapp.com/api/v1/leader-board",
       {contentType: 'application/json', data:load, method:"POST"})
       .then(function(data) {
-        console.log(data);
+        console.log(data, 'post response');
+        $('.winnersWindow').hide()
+        location.reload()
+        generateGameBoard()
       })
-    }
-    $('.winnersWindow').hide()
-    location.reload()
-    generateGameBoard()
+    }  
   })
 }
 

@@ -1,3 +1,4 @@
+
 generateGameBoard();
 placeStartingPieces();
 placeStartingWalls();
