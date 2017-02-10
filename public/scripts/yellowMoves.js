@@ -151,15 +151,15 @@ function jumpPieceY(array) {
       $(jumper).next().addClass('ywallRyt')
     }
     else if (!$(jumper).parent().prev().find('#'+$nnid).filter('.ywallBot').length && !$(jumper).parent().prev().find('#'+$nnid).filter('.uwallBot').length) {
-      if ($(jumper).is('#tr0') && $(jumper).is('#td0')) {
+      if ($(jumper).parent().is('#tr0') && $(jumper).is('#td0')) {
         console.log('1JTopWall');
         $(jumper).next().next().addClass('ywallTop')
       }
-      else if ($(jumper).is('#tr0') && $(jumper).is('#td1')) {
+      else if ($(jumper).parent().is('#tr0') && $(jumper).is('#td1')) {
         console.log('2JTopWall');
         $(jumper).next().next().addClass('ywallTop')
       }
-      else if ($(jumper).is('#tr0') && $(jumper).is('#td2')) {
+      else if ($(jumper).parent().is('#tr0') && $(jumper).is('#td2')) {
         console.log('3JTopWall');
         $(jumper).next().next().addClass('ywallTop')
       }
@@ -199,7 +199,7 @@ function jumpPieceY(array) {
       }
     }
     else if  (!$(jumper).parent().prev().find('#'+$ppid).filter('.ywallBot').length && !$(jumper).parent().prev().find('#'+$ppid).filter('.uwallBot').length) {
-      if (($(jumper).is('#tr0') && $(jumper).is('#td3')) || ($(jumper).is('#tr0') && $(jumper).is('#td4')) || ($(jumper).is('#tr0') && $(jumper).is('#td2'))) {
+      if (($(jumper).parent().is('#tr0') && $(jumper).is('#td3')) || ($(jumper).parent().is('#tr0') && $(jumper).is('#td4')) || ($(jumper).parent().is('#tr0') && $(jumper).is('#td2'))) {
         console.log('1JTopWall');
         (jumper).parent().prev().prev().addClass('ywallTop')
       } else {
@@ -254,7 +254,6 @@ function jumpPieceY(array) {
         $(jumper).parent().next().next().find('#'+$pid).addClass('ywallRyt')
       }
     }
-
     else {
       moveY()
     }
@@ -278,7 +277,7 @@ function jumpPieceY(array) {
       $(jumper).parent().prev().prev().find('#'+$id).addClass('ywallBot')
     }
     else if (!$(jumper).parent().prev().prev().prev().find('#'+$id).filter('.ywallBot').length && !$(jumper).parent().prev().prev().prev().find('#'+$id).filter('.uwallBot').length) {
-      if ($(jumper).is('#tr2')){
+      if ($(jumper).parent().is('#tr2')){
         console.log('1JTopWall');
         $(jumper).parent().prev().prev().prev().find('#'+$id).addClass('ywallTop')
       } else {
@@ -319,6 +318,10 @@ function moveY() {
     console.log('Wall Move:');
     var wallArray = scanYWalls()
     var item = wallArray[Math.floor(Math.random()*wallArray.length)];
+    // if (item === undefined) {
+    //   moveY()
+    // }
+    console.log(wallArray);
     console.log(item);
     if ($(item).filter('.ywallRyt').length) {
       $(item).removeClass('ywallRyt')
@@ -332,11 +335,11 @@ function moveY() {
         $(item).parent().prev().find('#'+$id).addClass('ywallBot')
         console.log('Right to LeftTop');
       } else
-      if (!$(item).next().filter('.ywallBot').length && !$(item).next().filter('.uwallBot').length && !$(item).is('#tr4')) {
+      if (!$(item).next().filter('.ywallBot').length && !$(item).next().filter('.uwallBot').length && !$(item).parent().is('#tr4')) {
         $(item).next().addClass('ywallBot')
         console.log('Right to RightBot');
       } else
-      if (!$(item).parent().prev().find('#'+$nid).filter('.ywallBot').length && !$(item).parent().prev().find('#'+$nid).filter('.uwallBot').length && !$(item).is('#tr4')) {
+      if (!$(item).parent().prev().find('#'+$nid).filter('.ywallBot').length && !$(item).parent().prev().find('#'+$nid).filter('.uwallBot').length && !$(item).parent().is('#tr4')) {
         $(item).parent().prev().find('#'+$nid).addClass('ywallBot')
         console.log('Right to RightTop');
       }
@@ -350,7 +353,7 @@ function moveY() {
         $(item).parent().next().find('#'+$id).addClass('ywallRyt')
         console.log('Bot to BotRight');
       } else
-      if (!$(item).parent().next().find('#'+$pid).filter('.ywallRyt').length && !$(item).parent().next().find('#'+$pid).filter('.uwallRyt').length && !$(item).parent.is('#tr4')) {
+      if (!$(item).parent().next().find('#'+$pid).filter('.ywallRyt').length && !$(item).parent().next().find('#'+$pid).filter('.uwallRyt').length && !$(item).parent().is('#tr4')) {
         $(item).parent().next().find('#'+$pid).addClass('ywallRyt')
         console.log('Bot to BotLeft');
       } else
@@ -367,11 +370,11 @@ function moveY() {
   } else {
     var pieceArray = scanYPieces()
     var itemP = pieceArray[Math.floor(Math.random()*pieceArray.length)];
-    console.log(itemP);
+    //console.log(itemP);
     var $id = $(itemP).attr('id')
     var $nid = $(itemP).next().attr('id')
     var $pid = $(itemP).prev().attr('id')
-    if (!$(itemP).parent().next().find('#'+$id).find('div').length && !$(itemP).filter('.uwallBot').length && !$(itemP).is('#tr4')) {
+    if (!$(itemP).parent().next().find('#'+$id).find('div').length && !$(itemP).filter('.uwallBot').length && !$(itemP).parent().is('#tr4')) {
       $(itemP).empty()
       console.log('Moved Bottom');
       $(itemP).parent().next().find('#'+$id).append($('<div>', {class: 'ypiece'}))
@@ -383,7 +386,7 @@ function moveY() {
       $(itemP).empty()
       console.log('Moved left');
       $(itemP).prev().append($('<div>', {class: 'ypiece'}))
-    } else if (!$(itemP).parent().prev().find('#'+$id).find('div').length && !$(itemP).parent().prev().find('#'+$id).filter('.uwallBot').length && !$(itemP).is('#tr0')) {
+    } else if (!$(itemP).parent().prev().find('#'+$id).find('div').length && !$(itemP).parent().prev().find('#'+$id).filter('.uwallBot').length && !$(itemP).parent().is('#tr0')) {
       $(itemP).empty()
       console.log('Moved up');
       $(itemP).parent().prev().find('#'+$id).append($('<div>', {class: 'ypiece'}))
@@ -404,27 +407,32 @@ function changeTurn() {
 }
 
 function winConditionU() {
-
   var winner = scanYPieces()
+  //console.log(winner);
   var check = winner.filter(function(index) {
     var $id = $(index).attr('id')
     return (
             $(index).filter('.uwallRyt').length
          || $(index).next().find('div').length
+         || $(index).is('#td4')
       ) && (
             $(index).filter('.uwallBot').length
          || $(index).parent().next().find('#'+$id).find('div').length
+         || $(index).parent().is('#tr4')
       ) && (
             $(index).prev().filter('.uwallRyt').length
          || $(index).prev().find('div').length
+         || $(index).is('#td0')
       ) && (
             $(index).parent().prev().find('#'+$id).filter('.uwallBot').length
          || $(index).parent().prev().find('#'+$id).find('div').length
+         || $(index).parent().is('#tr0')
       )
   })
-
-  if (check.length ===5) {
+  //console.log(check);
+  if (check.length === 5) {
     console.log('BLUE WINS');
+    $('.winnersWindow').show()
     //uWinner()
   }
 }

@@ -35,16 +35,19 @@ function placeStartingWalls() {
 function generateHighScoreBox() {
   var $tab = $('<table>', {id: 'highScoreBoxGrid'})
   $.get( "https://galvanize-leader-board.herokuapp.com/api/v1/leader-board/barricade_g43", function(data) {
+    console.log('success');
     var sorted = data.sort(function(a, b) {
       return a.score - b.score;
     })
+
+
     $('#highScoreBox').append($tab)
     for (i = 0; i < sorted.length; i++) {
       $('#highScoreBoxGrid').append($('<tr>', {id: 'hstr'+i}))
       var $td = $('<td></td>')
       $('#hstr'+ i).append($td.text(sorted[i]['player_name']), {id: 'name'+i})
     }
-    for (i = 0; i < 11; i++) {
+    for (i = 0; i < sorted.length; i++) {
       $('#highScoreBoxGrid').append($('<tr>', {id: 'hstr'+i}))
       var $td = $('<td></td>')
       $('#hstr'+ i).append($td.text(sorted[i]['score']), {id: 'name'+i})
@@ -478,9 +481,7 @@ function attachListeners() {
       $('.warning').fadeOut(1000)
     }
     else {
-
     var load = JSON.stringify({"game_name": "barricade_g43", "player_name":$('.winnersName').text(), "score": parseInt($('.scoreBox').text())})
-
     $.ajax("https://galvanize-leader-board.herokuapp.com/api/v1/leader-board",
       {contentType: 'application/json', data:load, method:"POST"})
       .then(function(data) {
