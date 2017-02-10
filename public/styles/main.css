@@ -160,6 +160,9 @@ main {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	color: white;
+	font-family: 'Barrio',cursive;
+	font-size: 18pt;
 }
 
 .choiceBox {
@@ -198,7 +201,7 @@ main {
 }
 
 .rulesWindow {
-	height: 600px;
+	height: 640px;
 	width: 800px;
 	margin: auto;
 	border: 10px solid white;
@@ -231,6 +234,20 @@ main {
 .rulesWindow li {
 	margin-left: 20px;
 	margin-top: 20px;
+}
+
+.hideButton {
+	width: 180px;
+  height: 60px;
+  border: 5px solid white;
+  border-radius: 5px;
+  color: tomato;
+  background-color: white;
+  font-family: 'Barrio', cursive;
+  font-size: 15pt;
+	-webkit-filter: drop-shadow(6px 6px 7px rgba(0,0,0,0.5));
+	padding: 0;
+	margin-top: 15px;
 }
 
 .upiece {
@@ -304,6 +321,14 @@ td:hover {
 
 .ywallRyt {
 	border-right: 5px solid gold;
+}
+
+.ywallTop {
+	border-top: 5px solid gold;
+}
+
+.ywallLft {
+	border-left: 5px solid gold;
 }
 
 .highlightCellPiece {
@@ -392,6 +417,68 @@ td:hover {
 	animation: indicateD;
 	animation-duration: 1s;
 	animation-iteration-count: infinite;
+}
+
+.winnersWindow {
+	height: 320px;
+	width: 700px;
+	margin: auto;
+	border: 10px solid white;
+	border-radius: 5px;
+	color: white;
+	font-family: 'Barrio',cursive;
+	font-size: 20pt;
+	background-color: lightgray;
+	-webkit-filter: drop-shadow(6px 6px 7px rgba(0,0,0,0.5));
+	padding: 0;
+	position: absolute;
+	margin-top: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.winnersWindow input {
+	height: 60px;
+	width: 280px;
+	margin: auto;
+	border: 5px solid white;
+	border-radius: 5px;
+	color: white;
+	font-family: 'Barrio',cursive;
+	font-size: 30pt;
+	background-color: tomato;
+	text-align: center;
+}
+
+.winnersWindow header {
+	margin-top: 20px;
+	font-family: 'Barrio',cursive;
+	font-size: 40pt;
+	background-color: lightgray;
+}
+
+.winnerButton {
+	width: 140px;
+  height: 40px;
+  border: 5px solid white;
+  border-radius: 5px;
+  color: tomato;
+  background-color: white;
+  font-family: 'Barrio', cursive;
+  font-size: 14pt;
+	-webkit-filter: drop-shadow(6px 6px 7px rgba(0,0,0,0.5));
+	padding: 0;
+	margin-bottom: 25px;
+}
+
+.warning {
+	font-family: 'Barrio', cursive;
+	background-color: tomato;
+	text-align: center;
+	font-size: 16pt;
+	margin-top: 10px;
 }
 /*.help {
   border: 3px solid blue;

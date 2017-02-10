@@ -10,20 +10,8 @@
     <main class="help">
       <div class="boardLeft help">
         <h1 class="secondaryHeader">TOP SCORES</h1>
-        <div class="highScoreBox">
-          <table>
-            <tr><td></td><td></td></tr>
-            <tr><td></td><td></td></tr>
-            <tr><td></td><td></td></tr>
-            <tr><td></td><td></td></tr>
-            <tr><td></td><td></td></tr>
-            <tr><td></td><td></td></tr>
-            <tr><td></td><td></td></tr>
-            <tr><td></td><td></td></tr>
-            <tr><td></td><td></td></tr>
-            <tr><td></td><td></td></tr>
-            <tr><td></td><td></td></tr>
-          </table>
+        <div class="highScoreBox" id='highScoreBox'>
+
         </div>
       </div>
       <div class="boardMiddle help">
@@ -54,6 +42,15 @@
           <li>You can jump your opponents pieces if available.  If you do, you can place a new wall at the destination grid space.  If no space is available, you will not recieve an new wall</li>
           <li>If you move your peice to the opposite end of the board, you will receive a new wall to place on ANY free grid line.</li>
         </ul>
+        <button type="button" name="hide" class="hideButton">HIDE RULES</button>
+      </div>
+      <div class="winnersWindow">
+        <header>
+          CONGRATULATIONS! <br> You lasted 50 turns!
+        </header>
+        <h2 class="warning">Please enter a name</h2>
+        <input type="text" name="name" value="" maxlength="10" placeholder="NAME" class="winnersName">
+        <button type="button" name="winnerButton" class="winnerButton">SUBMIT SCORE</button>
       </div>
     </main>
     <script

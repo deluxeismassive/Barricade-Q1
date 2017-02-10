@@ -9,6 +9,8 @@ function generateGameBoard() {
     }
   }
   $('.rulesWindow').hide()
+  $('.warning').hide()
+  $('.winnersWindow').hide()
   attachListeners();
 }
 
@@ -30,20 +32,25 @@ function placeStartingWalls() {
   }
 }
 
-function placeTest() {
-  $('#tr3 > #td2').addClass('uwallBot')
-  $('#tr1 > #td0').append($('<div>', {class: 'upiece'}))
-  $('#tr1 > #td1').append($('<div>', {class: 'upiece'}))
-  $('#tr3 > #td2').append($('<div>', {class: 'upiece'}))
-  $('#tr0 > #td1').addClass('uwallBot')
-  $('#tr4 > #td3').addClass('uwallRyt')
-  $('#tr3 > #td0').append($('<div>', {class: 'ypiece'}))
-  $('#tr3 > #td1').append($('<div>', {class: 'ypiece'}))
-  $('#tr3 > #td1').addClass('ywallRyt')
-  //$('#tr1 > #td0').addClass('ywallBot')
+function generateHighScoreBox() {
+  var $tab = $('<table>', {id: 'highScoreBoxGrid'})
+  $.get( "https://galvanize-leader-board.herokuapp.com/api/v1/leader-board/barricade_g43", function(data) {
+    var sorted = data.sort(function(a, b) {
+      return a.score - b.score;
+    })
+    $('#highScoreBox').append($tab)
+    for (i = 0; i < sorted.length; i++) {
+      $('#highScoreBoxGrid').append($('<tr>', {id: 'hstr'+i}))
+      var $td = $('<td></td>')
+      $('#hstr'+ i).append($td.text(sorted[i]['player_name']), {id: 'name'+i})
+    }
+    for (i = 0; i < 11; i++) {
+      $('#highScoreBoxGrid').append($('<tr>', {id: 'hstr'+i}))
+      var $td = $('<td></td>')
+      $('#hstr'+ i).append($td.text(sorted[i]['score']), {id: 'name'+i})
+    }
+  });
 }
-
-placeTest();
 
 //Click handlers for placing a wall after jump.
 function attachListeners() {
@@ -455,6 +462,34 @@ function attachListeners() {
     if ($('.selected').parent().next().find('#'+$id).find('.ypiece').length && !$('.selected').filter('.ywallBot').length && !$('.selected').parent().next().find('#'+$id).filter('.ywallBot').length && !$('.selected').parent().next().next().find('#'+$id).find('div').length) {
       $('.selected').parent().next().next().find('#'+$id).addClass('highlightCellJump')
     }
+  })
+
+  $('.rulesButton').on('click', function() {
+    $('.rulesWindow').show()
+  })
+
+  $('.hideButton').on('click', function() {
+    $('.rulesWindow').hide()
+  })
+
+  $('.winnerButton').on('click', function() {
+    if ($('.winnersName').text() === "") {
+      $('.warning').fadeIn(1000)
+      $('.warning').fadeOut(1000)
+    }
+    else {
+
+    var load = JSON.stringify({"game_name": "barricade_g43", "player_name":$('.winnersName').text(), "score": parseInt($('.scoreBox').text())})
+
+    $.ajax("https://galvanize-leader-board.herokuapp.com/api/v1/leader-board",
+      {contentType: 'application/json', data:load, method:"POST"})
+      .then(function(data) {
+        console.log(data);
+      })
+    }
+    $('.winnersWindow').hide()
+    $(document).empty()
+    generateGameBoard()
   })
 }
 
