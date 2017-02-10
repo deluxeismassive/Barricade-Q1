@@ -223,22 +223,28 @@ main {
 	font-size: 35pt;
 	margin-bottom: 25px;
 	font-weight: bold;
+	-webkit-filter: drop-shadow(6px 6px 7px rgba(0,0,0,0.5));
+	padding: 0;
 }
 
 .rulesWindow p {
 	font-size: 28pt;
 	margin-bottom: 10px;
 	margin-left: 10px;
+	-webkit-filter: drop-shadow(6px 6px 7px rgba(0,0,0,0.5));
+	padding: 0;
 }
 
 .rulesWindow li {
 	margin-left: 20px;
 	margin-top: 20px;
+	-webkit-filter: drop-shadow(6px 6px 7px rgba(0,0,0,0.5));
+	padding: 0;
 }
 
 .hideButton {
 	width: 180px;
-  height: 60px;
+  height: 35px;
   border: 5px solid white;
   border-radius: 5px;
   color: tomato;
@@ -247,7 +253,6 @@ main {
   font-size: 15pt;
 	-webkit-filter: drop-shadow(6px 6px 7px rgba(0,0,0,0.5));
 	padding: 0;
-	margin-top: 15px;
 }
 
 .upiece {
@@ -340,7 +345,26 @@ td:hover {
 }
 
 .degeneratePiece {
-	background-color: tomato;
+	animation: degeneratePiece;
+	animation-duration: .6s;
+	animation-fill-mode: forwards;
+}
+
+.generatePiece {
+	animation: generatePiece;
+	animation-duration: .6s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes degeneratePiece {
+	0% {height: 60px; width: 60px; border-radius: 30px;}
+	100% {height: 0px; width: 0px; border-radius: 0px;}
+}
+
+@keyframes generatePiece {
+	0% {height: 0px; width: 0px; border-radius: 0px;}
+	90% {height: 70px; width: 70px; border-radius: 35px;}
+	100% {height: 60px; width: 60px; border-radius: 30px;}
 }
 
 @keyframes indicateL {
@@ -480,6 +504,11 @@ td:hover {
 	font-size: 16pt;
 	margin-top: 10px;
 }
+
+
+
+
+
 /*.help {
   border: 3px solid blue;
 }*/

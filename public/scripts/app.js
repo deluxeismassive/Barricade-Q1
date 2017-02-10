@@ -16,10 +16,10 @@ function generateGameBoard() {
 
 function placeStartingPieces() {
   for (i = 0; i < 5; i++) {
-    $(`#tr4 > #td${i}`).append($('<div>', {class: 'upiece'}))
+    $(`#tr4 > #td${i}`).append($('<div>', {class: 'upiece generatePiece'}))
   }
   for (i = 0; i < 5; i++) {
-    $(`#tr0 > #td${i}`).append($('<div>', {class: 'ypiece'}))
+    $(`#tr0 > #td${i}`).append($('<div>', {class: 'ypiece generatePiece'}))
   }
 }
 
@@ -489,7 +489,7 @@ function attachListeners() {
       })
     }
     $('.winnersWindow').hide()
-    $(document).empty()
+    location.reload()
     generateGameBoard()
   })
 }
