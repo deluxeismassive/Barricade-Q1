@@ -12,7 +12,7 @@ function generateGameBoard() {
   }
   $('.rulesWindow').hide()
   $('.warning').hide()
-  //$('.winnersWindow').hide()
+  $('.winnersWindow').hide()
   attachListeners();
 }
 
@@ -494,7 +494,7 @@ function attachListeners() {
         location.reload()
         generateGameBoard()
       })
-    }  
+    }
   })
 }
 
